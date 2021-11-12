@@ -27,7 +27,7 @@
 import { ref } from '@vue/reactivity'
 import useLogin from '../composables/useLogin'
 export default {
-  setup(context) {
+  setup(props, context) {
     const email = ref(null)
     const password = ref(null)
 

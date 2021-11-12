@@ -26,7 +26,7 @@ export default {
     const router = useRouter()
 
     const enterChat = () => {
-      router.push({ name: 'Chatoom' })
+      router.push({ name: 'Chatroom' })
     }
 
     const handleShowLogin = () => {

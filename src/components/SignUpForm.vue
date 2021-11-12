@@ -37,7 +37,7 @@ import { ref } from '@vue/reactivity'
 import useSignUp from  '../composables/useSignUp'
 
 export default {
-  setup(context) {
+  setup(props, context) {
     const { error, signup } = useSignUp()
     
     const displayName = ref(null)

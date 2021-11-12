@@ -3,7 +3,7 @@
     <div v-if="showLogin">
       <h2>Login</h2>
       <LoginForm @login="enterChat" />
-      <p>Not a member? <span @click="handleShowLogin">Sign up now!</span></p>
+      <p>Not a member? <span @click="handleShowLogin">Sign up</span> now!</p>
     </div>
     <div v-else>
       <h2>Sign Up</h2>

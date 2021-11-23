@@ -1,4 +1,4 @@
-import { ref } from "vue"
+import { ref, watchEffect } from "vue"
 import { projectFirestore } from "../firebase/config"
 
 const getCollection = (collection) => {
@@ -9,7 +9,7 @@ const getCollection = (collection) => {
   const collectionRef = projectFirestore.collection(collection)
   .orderBy('createdAt', 'asc')
 
-  collectionRef.onSnapshot(snap => {
+  const unsub = collectionRef.onSnapshot(snap => {
     const results = []
     snap.docs.forEach(doc => { 
       doc.data().createdAt && results.push({...doc.data(), id: doc.id }) 
@@ -21,6 +21,12 @@ const getCollection = (collection) => {
     documents.value = null
     error.value = err.message
   })
+
+  watchEffect((onInvalidate) => {
+    // unsub from collection when component unmounts
+    onInvalidate(() => unsub())
+  })
+  
   return { documents, error }
 }
 

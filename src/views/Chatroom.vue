@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Navbar />
-    <Messages />
+    <ChatWindow />
     <NewChatForm />
   </div>
 </template>
@@ -11,11 +11,11 @@ import { watch } from '@vue/runtime-core'
 import { useRouter } from 'vue-router'
 import Navbar from '../components/Navbar.vue'
 import NewChatForm from '../components/NewChatForm.vue'
-import Messages from '../components/Messages.vue'
+import ChatWindow from '../components/ChatWindow.vue'
 import getUser from '../composables/getUser'
 
 export default {
-  components: { Navbar, NewChatForm, Messages },
+  components: { Navbar, NewChatForm, ChatWindow },
   setup() {
     const { user } = getUser()
     const router = useRouter()

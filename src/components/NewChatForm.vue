@@ -58,6 +58,12 @@ export default {
     font-family: inherit;
     outline: none;
     resize: none;
+    background: #3E4756;
+    color: #fff;
+  }
+
+  textarea::placeholder {
+    color: #fff;
   }
   
 </style>
